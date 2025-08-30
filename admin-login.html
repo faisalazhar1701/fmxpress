@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FM Xpress - Admin Login</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .login-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .login-logo {
+            margin-bottom: 2rem;
+        }
+        
+        .login-logo .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+        
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .login-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .back-link {
+            margin-top: 1rem;
+        }
+        
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-logo">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect x="8" y="12" width="24" height="20" rx="2" fill="#FF6B35"/>
+                            <path d="M12 12C12 9.79086 13.7909 8 16 8H24C26.2091 8 28 9.79086 28 12" stroke="#FF6B35" stroke-width="2" fill="none"/>
+                            <circle cx="14" cy="18" r="1.5" fill="white"/>
+                            <circle cx="26" cy="18" r="1.5" fill="white"/>
+                            <path d="M14 18C14 18 18 16 20 16C22 16 26 18 26 18" stroke="#FF6B35" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-fm">FM</span>
+                        <span class="logo-xpress">Xpress</span>
+                    </div>
+                </div>
+                <h2>Admin Login</h2>
+                <p>Enter your credentials to access the admin panel</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <div class="error-message" id="errorMessage">
+                    Invalid username or password
+                </div>
+            </form>
+            
+            <div class="back-link">
+                <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Store</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Admin credentials (in a real app, this would be server-side)
+        const ADMIN_CREDENTIALS = {
+            username: 'admin',
+            password: 'fmxpress2024'
+        };
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+                // Store admin session
+                sessionStorage.setItem('adminLoggedIn', 'true');
+                sessionStorage.setItem('adminLoginTime', Date.now());
+                
+                // Redirect to admin dashboard
+                window.location.href = 'admin.html';
+            } else {
+                errorMessage.style.display = 'block';
+                document.getElementById('password').value = '';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FM Xpress - Your Premium Online Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <!-- Shopping bag icon -->
+                            <rect x="8" y="12" width="24" height="20" rx="2" fill="#FF6B35"/>
+                            <!-- Bag handle -->
+                            <path d="M12 12C12 9.79086 13.7909 8 16 8H24C26.2091 8 28 9.79086 28 12" stroke="#FF6B35" stroke-width="2" fill="none"/>
+                            <!-- White circular holes -->
+                            <circle cx="14" cy="18" r="1.5" fill="white"/>
+                            <circle cx="26" cy="18" r="1.5" fill="white"/>
+                            <!-- Handle curve -->
+                            <path d="M14 18C14 18 18 16 20 16C22 16 26 18 26 18" stroke="#FF6B35" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-fm">FM</span>
+                        <span class="logo-xpress">Xpress</span>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" class="nav-link cart-link" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span class="cart-count" id="cartCount">0</span>
+                </a></li>
+                <li style="display: none;"><a href="admin-login.html" class="nav-link admin-link"><i class="fas fa-user-shield"></i> Admin</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to FM Xpress</h1>
+            <p>Your one-stop destination for premium products at unbeatable prices</p>
+            <a href="#products" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About FM Xpress</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>FM Xpress is your trusted online marketplace, offering a wide range of high-quality products at competitive prices. We pride ourselves on excellent customer service, fast shipping, and secure transactions.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-shipping-fast"></i>
+                            <h3>Fast Delivery</h3>
+                            <p>Quick and reliable shipping to your doorstep</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Secure Shopping</h3>
+                            <p>100% secure payment processing</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-headset"></i>
+                            <h3>24/7 Support</h3>
+                            <p>Round-the-clock customer support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@fmxpress.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Business St, City, State 12345</p>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FM Xpress</h3>
+                    <p>Your trusted online marketplace for quality products.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FM Xpress. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
+            <button class="cart-close" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: <span id="cartTotal">PKR 0</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-form">
+            <button class="checkout-close" onclick="closeCheckoutModal()">&times;</button>
+            <h3 style="margin-bottom: 1.5rem; color: #333; font-size: 1.5rem; text-align: center;">Complete Your Order</h3>
+            <div class="order-summary">
+                <h4>Order Summary</h4>
+                <div id="orderItems"></div>
+                <div class="order-total">
+                    <strong>Total: <span id="orderTotal">PKR 0</span></strong>
+                </div>
+            </div>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Email (Optional)</label>
+                    <input type="email" name="email" placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Shipping Address</label>
+                    <textarea name="address" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <select name="payment" required>
+                        <option value="">Select Payment Method</option>
+                        <option value="cod">Cash on Delivery</option>
+                        <option value="bank">Bank Transfer</option>
+                    </select>
+                </div>
+                <button type="submit" class="checkout-submit">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- EmailJS for email notifications -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS (you'll need to replace with your actual EmailJS credentials)
+        // emailjs.init("YOUR_USER_ID");
+        // For now, we'll use the fallback method in the script
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
